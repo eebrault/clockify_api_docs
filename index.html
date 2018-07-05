@@ -352,7 +352,7 @@
               <div class="doc-examples">
                 <section>
                   <h5>API Endpoint</h5>
-                  <!-- <div class="hljs"> --><pre><code>https://clockify.me/api/</code></pre>
+                  <!-- <div class="hljs"> --><pre><code>https://api.clockify.me/api/</code></pre>
                   <!-- </div> -->
                   <h5>Terms of Service:
                     <a href="https://clockify.me/terms">https://clockify.me/terms</a>
@@ -1651,9 +1651,9 @@
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-request-body">
-                  <p>projectIds</p>
+                  <p>projectIds: string[]</p>
                   <section class="json-schema-array-items">
-                    <span class="json-property-type">string</span>
+                    <span class="json-property-type">string[]</span>
                     <span class="json-property-range" title="Value limits"></span>
                     <div class="json-inner-schema"> </div>
                   </section>
@@ -1665,9 +1665,9 @@
                     <span>application/json</span>
                   </h5>
                   <h5>Request Example</h5>
-                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
-  <span class="hljs-string">&quot;string&quot;</span>
-]
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;ids&quot;</span>: <span class="hljs-string">[&quot;string&quot;]</span>
+}
 </code></pre>
                   <!-- </div> -->
                 </section>
@@ -4406,7 +4406,7 @@
                 <section class="swagger-request-body">
                   <p>taskIds</p>
                   <section class="json-schema-array-items">
-                    <span class="json-property-type">string</span>
+                    <span class="json-property-type">taskIds: string[]</span>
                     <span class="json-property-range" title="Value limits"></span>
                     <div class="json-inner-schema"> </div>
                   </section>
@@ -4418,9 +4418,9 @@
                     <span>application/json</span>
                   </h5>
                   <h5>Request Example</h5>
-                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
-  <span class="hljs-string">&quot;5b1e6b160cb8793dd93ec120&quot;</span>
-]
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+   <span class="hljs-attr">&quot;ids&quot;</span>: <span class="hljs-string">[&quot;5b1e6b160cb8793dd93ec120&quot;]</span>
+}
 </code></pre>
                   <!-- </div> -->
                 </section>
@@ -5275,7 +5275,11 @@
             <h2 class="operation-title">
               <span class="operation-summary">Add new time entry on workspace</span>
             </h2>
-            <p>If end is not sent in request mean that stopwatch mode is active, else time entry is manually added.</p>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>If end is not sent in request mean that stopwatch mode is active, else time entry is manually added.</p>
+            </div>
+          </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-path">
@@ -5711,6 +5715,11 @@
             <h2 class="operation-title">
               <span class="operation-summary">Find time entries for user</span>
             </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Finds that user's 50 most recent entries. When page = 1, you get the batch of next 50 most recent time entries</p>
+            </div>
+          </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-path">
@@ -5732,8 +5741,14 @@
                         <span class="json-property-default-value" title="Default value">0</span>
                       </div>
                     </div>
-                    <div class="prop-value">
-                      <p>page</p>
+                    <div class="prop-name">
+                      <div class="prop-title">limit</div>
+                      <div class="prop-subtitle"> in query </div>
+                      <div class="prop-subtitle">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <span class="json-property-default-value" title="Default value">50</span>
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -6025,6 +6040,7 @@
               </div>
             </div>
           </div>
+          
           <h1 id="tag-User" class="swagger-summary-tag" data-traverse-target="tag-User">User</h1>
           <div class="tag-description doc-row">
             <div class="doc-copy">
