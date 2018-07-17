@@ -190,6 +190,9 @@
                 <a href="#operation--workspaces--workspaceId--timeEntries-user--userId--get"> Find time entries for user </a>
               </li>
               <li>
+                <a href="#operation--workspaces--workspaceId--timeEntries-user--userId--dateRange--get"> Find time entries in date range for user</a>
+              </li>
+              <li>
                 <a href="#operation--workspaces--workspaceId--timeEntries--id--put"> Update time entry on workspace </a>
               </li>
               <li>
@@ -293,6 +296,7 @@
           <a href="#definition-ClientRequest"> ClientRequest </a>
           <a href="#definition-CreateProjectRequest"> CreateProjectRequest </a>
           <a href="#definition-CreateTimeEntryRequest"> CreateTimeEntryRequest </a>
+          <a href="#definition-TimeEntryStartEndRequest"> TimeEntryStartEndRequest </a>
           <a href="#definition-CreateUserGroupRequest"> CreateUserGroupRequest </a>
           <a href="#definition-CreateWorkspaceRequest"> CreateWorkspaceRequest </a>
           <a href="#definition-EstimateDto"> EstimateDto </a>
@@ -5956,6 +5960,146 @@
               </div>
             </div>
           </div>
+          <div id="operation--workspaces--workspaceId--timeEntries-user--userId--dateRange--get" class="operation panel" data-traverse-target="operation--workspaces--workspaceId--timeEntries-user--userId--dateRange--get">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Time-entry">Time entry</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Find time entries for user in date range</span>
+            </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Finds that user's entries in that date range.</p>
+            </div>
+          </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">POST</span>
+                  <span class="operation-path">/workspaces/{workspaceId}/timeEntries/user/{userId}/entriesInRange</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body">
+                  <div class="prop-row">
+                    <div class="prop-name">
+                      <div class="swagger-request-model">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/TimeEntryStartEndRequest">TimeEntryStartEndRequest</a>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value columns small-6">
+                      <!-- <div class="swagger-request-description"> -->
+                      <p>request</p>
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Request Content-Types:
+                    <span>application/json</span>
+                  </h5>
+                  <h5>Request Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2018-06-12T00:00:00.000Z&quot;</span>,
+  <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-06-18T23:59:59.999Z&quot;</span>,
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                      <div class="prop-ref">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/TimeEntriesListDto">TimeEntriesListDto</a>
+                        </span>
+                      </div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>OK</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">401 Unauthorized</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Unauthorized</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Forbidden</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">404 Not Found</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Not Found</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>*/*</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+                  <span class="hljs-attr">&quot;allEntriesCount&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>,
+                  <span class="hljs-attr">&quot;gotAllEntries&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
+                  <span class="hljs-attr">&quot;timeEntriesList&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
+                      <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Writing documentation&quot;</span>,
+                      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5b0fdf2a0cb87904845dfer5&quot;</span>,
+                      <span class="hljs-attr">&quot;isLocked&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
+                      <span class="hljs-attr">&quot;projectId&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
+                      <span class="hljs-attr">&quot;tagIds&quot;</span>: [
+                        <span class="hljs-string">&quot;5a7c5d2db079870147fra234&quot;</span>
+                      ],
+                      <span class="hljs-attr">&quot;taskId&quot;</span>: <span class="hljs-string">&quot;5b1e6b160cb8793dd93ec120&quot;</span>,
+                      <span class="hljs-attr">&quot;timeInterval&quot;</span>: {
+                        <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;PT1M4S&quot;</span>, (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
+                        <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-06-12T14:01:41Z&quot;</span>,
+                        <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2018-06-12T14:00:37Z&quot;</span>
+                      },
+                      <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;6h1e49bf0cb8790e43d6c9ab&quot;</span>,
+                      <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>
+                    }
+                  ]
+                }
+                </code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="operation--workspaces--workspaceId--timeEntries--id--put" class="operation panel" data-traverse-target="operation--workspaces--workspaceId--timeEntries--id--put">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
@@ -9860,6 +10004,45 @@
   <span class="hljs-attr">&quot;tagIds&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ]
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-TimeEntryStartEndRequest" class="definition panel" data-traverse-target="definition-TimeEntryStartEndRequest">
+            <h2 class="panel-title">
+              <a name="/definitions/TimeEntryStartEndRequest"></a>TimeEntryStartEndRequest
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="start">
+                      <span class="json-property-name">start:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="end">
+                      <span class="json-property-name">end:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
 }
 </code></pre>
                   <!-- </div> -->
