@@ -3848,18 +3848,47 @@
                     <span>(200 OK)</span>
                   </h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;dateAndTotalBillableTime&quot;</span>: {
-    <span class="hljs-attr">&quot;2018-06-04&quot;</span><span class="hljs-string">&quot;PT0S&quot;</span> (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
+  <span class="hljs-attr">"dateAndTotalBillableTime"</span>: {},
+  <span class="hljs-attr">"dateAndTotalNotBillableTime"</span>: {
+    <span class="hljs-attr">"2018-08-06"</span>: <span class="hljs-string">"PT9H"</span> (Duration example: PT1H30M15S - 1 hour 30 minutes
   },
-  <span class="hljs-attr">&quot;dateAndTotalNotBillableTime&quot;</span>: {
-    <span class="hljs-attr">&quot;2018-05-31&quot;</span><span class="hljs-string">&quot;PT2H3M&quot;</span> (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
+  <span class="hljs-attr">"projectAndTotalTime"</span>: {
+     <span class="hljs-attr">"ProjectX"</span>: <span class="hljs-string">"PT9H"</span>
   },
-  <span class="hljs-attr">&quot;projectAndTotalTime&quot;</span>: {
-    <span class="hljs-attr">&quot;Clockify 2&quot;</span><span class="hljs-string">&quot;PT2H3M&quot;</span>, (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
-    <span class="hljs-attr">&quot;short&quot;</span><span class="hljs-string">&quot;PT0S&quot;</span>  (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
-  },
-  <span class="hljs-attr">&quot;totalTime&quot;</span>: <span class="hljs-string">&quot;PT2H3M&quot;</span>,
-  <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>
+  <span class="hljs-attr">"totalTime"</span>: <span class="hljs-string">"PT9H"</span>,
+  <span class="hljs-attr">"workspaceId"</span>: <span class="hljs-string">"6ac4c3c8b07987197abf0ee5"</span>,
+  <span class="hljs-attr">"timeEntries"</span>: [
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"6b685ccbb079871db49b690d"</span>,
+      <span class="hljs-attr">"billable"</span>: <span class="hljs-string">false</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"project"</span>: <span class="hljs-string"></span>{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"6ac4c84ab07987197abf0feb"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"ProjectX"</span>,
+        <span class="hljs-attr">"color"</span>: <span class="hljs-string">"#f44336</span>"
+      },
+      <span class="hljs-attr">"clientId"</span>: <span class="hljs-string">"6ac4d16db07987197abf11e4"</span>,
+      <span class="hljs-attr">"clientName"</span>: <span class="hljs-string">"Atlassian"</span>,
+      <span class="hljs-attr">"hourlyRate"</span>: <span class="hljs-string"></span>{
+        <span class="hljs-attr">"amount"</span>: <span class="hljs-string">0</span>,
+        <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"USD</span>"
+      },
+      <span class="hljs-attr">"timeInterval"</span>: <span class="hljs-string"></span>{
+        <span class="hljs-attr">"start"</span>: <span class="hljs-string">"2018-08-06T07:00:00Z"</span>,
+        <span class="hljs-attr">"end"</span>: <span class="hljs-string">"2018-08-06T16:00:00Z"</span>,
+        <span class="hljs-attr">"duration"</span>: <span class="hljs-string">"PT9H</span>"
+      },
+     <span class="hljs-attr">"user"</span>: <span class="hljs-string"></span>{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"692e9ebab0798735d03919f5"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"James White"</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"james.white@atlassian.com</span>"
+      },
+      <span class="hljs-attr">"task"</span>: <span class="hljs-string">null</span>,
+      <span class="hljs-attr">"tags"</span>: <span class="hljs-string">null</span>,
+      <span class="hljs-attr">"totalBillable"</span>: <span class="hljs-string">0</span>,
+      <span class="hljs-attr">"isLocked"</span>: <span class="hljs-string">false</span>
+    }
+  ]
 }
 </code></pre>
                   <!-- </div> -->
