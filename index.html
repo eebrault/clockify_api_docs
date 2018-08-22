@@ -21,6 +21,7 @@
           <h5>Topics</h5>
           <a href="#introduction">Introduction</a>
           <a href="#authentication">Authentication</a>
+          <a href="#timezones">Time Zones</a>
           <h5>Operations</h5>
           <section>
             <a href="#tag-Auth">Auth</a>
@@ -400,6 +401,24 @@
                     <div class="prop-value security-definition-property-type"> header </div>
                   </div>
                 </section>
+              </div>
+            </div>
+          </div>
+          <h1 id="timezones" data-traverse-target="timezones">Time Zones</h1>
+          <div id="security-definition-api_key" class="panel">
+            <div class="doc-row">
+              <div class="doc-copy">
+                <p>Clockify uses three time zones to record and display time values:</p>
+                <ul>
+                 <li>Your computer’s system time zone (when you record time)</li>
+                 <li>UTC (stored in the database)</li>
+                 <li>Time zone in User Settings (when displaying recorded time)</li>
+                </ul>
+                <p>When you record time in Clockify (eg. when you start a timer), your system time is used. Then, Clockify converts that time to UTC and sends the converted value to the server. When you later view the time in reports, the time zone from your User Settings is used.</p>
+                <p>Any time entries you make in Clockify are recorded against your computer’s system time zone, regardless of the time zone, you have set in Clockify’s User Settings. Time zone in User Settings is applied only displaying already recorded time (like in reports and timesheet).</p>
+                <h3>Example</h3>
+                <p>Jörg from Germany works from 09-10 AM (UTC+2) and records that time in Clockify. Clockify converts it to 07-09 AM (its corresponding UTC value) and stores it in the database. When Emily from New York runs the report, she sees that Jörg worked from 03-04 AM (displayed in her UTC-4 time).</p>
+                <p>This assumes the system time zone and the time zone in User Settings match. If they don’t match, you will get a notification to fix it. If you don’t fix it,  your timesheet and reports will show different start and end time from the one you recorded</p>
               </div>
             </div>
           </div>
@@ -5237,8 +5256,8 @@
     },
     <span class="hljs-attr">&quot;timeInterval&quot;</span>: {
       <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;PT0S&quot;</span>, (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
-      <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-06-04T11:25:30Z&quot;</span>,
-      <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2018-06-04T11:25:30Z&quot;</span>
+      <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-08-15T11:30:00Z&quot;</span>, Entries made in timesheet don't contain microseconds, while entries made in time tracker do contain microseconds (eg. 2018-08-17T16:00:00.688Z)
+      <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2018-08-15T11:30:00Z&quot;</span> 
     },
     <span class="hljs-attr">&quot;totalBillable&quot;</span>: null,
     <span class="hljs-attr">&quot;user&quot;</span>: {
