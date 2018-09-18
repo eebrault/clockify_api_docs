@@ -3341,13 +3341,8 @@
                   <h5>Request Example</h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
   <span class="hljs-attr">&quot;startDate&quot;</span>: <span class="hljs-string">&quot;2018-06-18T00:00:00.000Z&quot;,</span>
-  <span class="hljs-attr">&quot;timeEntryDescription&quot;</span>: <span class="hljs-string">&quot;&quot;,</span>
   <span class="hljs-attr">&quot;endDate&quot;</span>: <span class="hljs-string">&quot;2018-06-24T23:59:59.999Z&quot;,</span>
   <span class="hljs-attr">&quot;me&quot;</span>: <span class="hljs-string">&quot;false&quot;,</span>
-  <span class="hljs-attr">&quot;clients&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
-  <span class="hljs-attr">&quot;projects&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
-  <span class="hljs-attr">&quot;tags&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
-  <span class="hljs-attr">&quot;tasks&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
   <span class="hljs-attr">&quot;userGroupIds&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
   <span class="hljs-attr">&quot;userIds&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
   <span class="hljs-attr">&quot;projectIds&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
@@ -3355,11 +3350,11 @@
   <span class="hljs-attr">&quot;taskIds&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
   <span class="hljs-attr">&quot;tagIds&quot;</span>: <span class="hljs-string">&quot;[]&quot;,</span>
   <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;BOTH&quot;,</span> (Options: "BOTH", "BILLABLE", "NOT_BILLABLE")
+  <span class="hljs-attr">&quot;includeTimeEntries&quot;</span>: <span class="hljs-string">&quot;true&quot;,</span>
+  <span class="hljs-attr">&quot;zoomLevel&quot;</span>: <span class="hljs-string">&quot;week&quot;</span> (Options: "week", "month", "year")
   <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;&quot;,</span>
   <span class="hljs-attr">&quot;archived&quot;</span>: <span class="hljs-string">&quot;Active&quot;,</span> (Options: "Active", "All", "Archived")
   <span class="hljs-attr">&quot;roundingOn&quot;</span>: <span class="hljs-string">&quot;false&quot;,</span>
-  <span class="hljs-attr">&quot;includeTimeEntries&quot;</span>: <span class="hljs-string">&quot;true&quot;,</span>
-  <span class="hljs-attr">&quot;zoomLevel&quot;</span>: <span class="hljs-string">&quot;week&quot;</span> (Options: "week", "month", "year")
 }
 </code></pre>
                   <!-- </div> -->
@@ -4898,6 +4893,7 @@
           <div class="tag-description doc-row">
             <div class="doc-copy">
               <p>If end is not sent in request mean that stopwatch mode is active, else time entry is manually added.</p>
+              <p>'start' is the only mandatory field on this endpoint. There is no workaround to automatically start with current time</p>
             </div>
           </div>
             <div class="doc-row">
@@ -9783,62 +9779,8 @@
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="json-schema-properties">
-                  <dl>
-                    <dt data-property-name="clients">
-                      <span class="json-property-name">clients:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="projects">
-                      <span class="json-property-name">projects:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="startDate">
                       <span class="json-property-name">startDate:</span>
-                      <span class="json-property-type">string</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt data-property-name="tags">
-                      <span class="json-property-name">tags:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="tasks">
-                      <span class="json-property-name">tasks:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="timeEntryDescription">
-                      <span class="json-property-name">timeEntryDescription:</span>
                       <span class="json-property-type">string</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
@@ -9857,72 +9799,30 @@
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="userIds">
                       <span class="json-property-name">userIds:</span>
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
                     </dt>
                     <dt data-property-name="projectIds">
                       <span class="json-property-name">projectIds:</span>
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="clientIds">
                       <span class="json-property-name">clientIds:</span>
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
                     </dt>
                     <dt data-property-name="taskIds">
                       <span class="json-property-name">taskIds:</span>
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="tagIds">
                       <span class="json-property-name">tagIds:</span>
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
                     </dt>
                     <dt data-property-name="billable">
                       <span class="json-property-name">billable:</span>
@@ -9961,20 +9861,7 @@
                 <section>
                   <h5>Example</h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;clients&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;projects&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
   <span class="hljs-attr">&quot;startDate&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;tags&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;tasks&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;timeEntryDescription&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;endDate&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;me&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;userGroupIds&quot;</span>: [
@@ -12542,6 +12429,11 @@
               
               </span> -->
             </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>UpdateTimeEntryRequest requires "billable" as input</p>
+            </div>
+          </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="json-schema-properties">
