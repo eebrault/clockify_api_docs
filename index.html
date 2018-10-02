@@ -4235,6 +4235,11 @@
             <h2 class="operation-title">
               <span class="operation-summary">Add new task on project</span>
             </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>When adding new tasks on projects, name and projectId are required fields. Optionally, you can also send estimate and assigneeId.</p>
+            </div>
+          </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-path">
@@ -4270,7 +4275,9 @@
                   <h5>Request Example</h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Task 1&quot;</span>,
-  <span class="hljs-attr">&quot;projectId&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>
+  <span class="hljs-attr">&quot;projectId&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
+  <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;PT2H&quot;</span>, (optional)
+  <span class="hljs-attr">&quot;assigneeId&quot;</span>: <span class="hljs-string">&quot;593e40aab0798735d0392a2d&quot;</span> (optional)
 }
 </code></pre>
                   <!-- </div> -->
