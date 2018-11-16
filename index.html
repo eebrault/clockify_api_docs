@@ -1124,10 +1124,13 @@
                   </h5>
                   <h5>Request Example</h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Clockify 2&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;My API Project&quot;</span>,
   <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
   <span class="hljs-attr">&quot;isPublic&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
-  <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;3600&quot;</span>, (number in seconds)
+  <span class="hljs-attr">&quot;estimate&quot;</span>: {
+    <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;3600&quot;</span>, (number in seconds)
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;AUTO&quot;</span> (Type: AUTO, MANUAL)
+  },
   <span class="hljs-attr">&quot;color&quot;</span>: <span class="hljs-string">&quot;#f44336&quot;</span>,
   <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>
 }
@@ -2911,12 +2914,7 @@
                   </h5>
                   <h5>Request Example</h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;clients&quot;</span>: [],
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Clockify 2 - saved report&quot;</span>,
-  <span class="hljs-attr">&quot;projects&quot;</span>: [],
-  <span class="hljs-attr">&quot;tags&quot;</span>: [],
-  <span class="hljs-attr">&quot;tasks&quot;</span>: [],
-  <span class="hljs-attr">&quot;users&quot;</span>: [],
   <span class="hljs-attr">&quot;userIds&quot;</span>: [],
   <span class="hljs-attr">&quot;clientIds&quot;</span>: [],
   <span class="hljs-attr">&quot;projectIds&quot;</span>: [],
@@ -3001,12 +2999,7 @@
                     <span>(200 OK)</span>
                   </h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;clients&quot;</span>: [],
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Clockify 2 - saved report&quot;</span>,
-  <span class="hljs-attr">&quot;projects&quot;</span>: [],
-  <span class="hljs-attr">&quot;tags&quot;</span>: [],
-  <span class="hljs-attr">&quot;tasks&quot;</span>: [],
-  <span class="hljs-attr">&quot;users&quot;</span>: [],
   <span class="hljs-attr">&quot;userIds&quot;</span>: [],
   <span class="hljs-attr">&quot;clientIds&quot;</span>: [],
   <span class="hljs-attr">&quot;projectIds&quot;</span>: [],
@@ -3149,12 +3142,7 @@
                     <span>(200 OK)</span>
                   </h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;clients&quot;</span>: [],
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Clockify 2 - saved report update&quot;</span>,
-  <span class="hljs-attr">&quot;projects&quot;</span>: [],
-  <span class="hljs-attr">&quot;tags&quot;</span>: [],
-  <span class="hljs-attr">&quot;tasks&quot;</span>: [],
-  <span class="hljs-attr">&quot;users&quot;</span>: [],
   <span class="hljs-attr">&quot;userIds&quot;</span>: [],
   <span class="hljs-attr">&quot;clientIds&quot;</span>: [],
   <span class="hljs-attr">&quot;projectIds&quot;</span>: [],
@@ -3258,12 +3246,7 @@
                     <span>(200 OK)</span>
                   </h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;clients&quot;</span>: [],
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Clockify 2 - saved report&quot;</span>,
-  <span class="hljs-attr">&quot;projects&quot;</span>: [],
-  <span class="hljs-attr">&quot;tags&quot;</span>: [],
-  <span class="hljs-attr">&quot;tasks&quot;</span>: [],
-  <span class="hljs-attr">&quot;users&quot;</span>: [],
   <span class="hljs-attr">&quot;userIds&quot;</span>: [],
   <span class="hljs-attr">&quot;clientIds&quot;</span>: [],
   <span class="hljs-attr">&quot;projectIds&quot;</span>: [],
@@ -9594,7 +9577,11 @@
                     </dt>
                     <dt data-property-name="estimate">
                       <span class="json-property-name">estimate:</span>
-                      <span class="json-property-type">string</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/EstimateDto">EstimateDto</a>
+                        </span>
+                      </span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
                     <dt data-property-name="color">
@@ -9617,7 +9604,10 @@
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;isPublic&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;estimate&quot;</span>: {
+    <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  },
   <span class="hljs-attr">&quot;color&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
 }
@@ -10676,18 +10666,6 @@
                         <div class="json-inner-schema"> </div>
                       </section>
                     </dt>
-                    <dt data-property-name="clients">
-                      <span class="json-property-name">clients:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="description">
                       <span class="json-property-name">description:</span>
                       <span class="json-property-type">string</span>
@@ -10722,18 +10700,6 @@
                     </dt>
                     <dt data-property-name="projectIds">
                       <span class="json-property-name">projectIds:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="projects">
-                      <span class="json-property-name">projects:</span>
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
@@ -10783,32 +10749,8 @@
                         <div class="json-inner-schema"> </div>
                       </section>
                     </dt>
-                    <dt data-property-name="tags">
-                      <span class="json-property-name">tags:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="taskIds">
                       <span class="json-property-name">taskIds:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="tasks">
-                      <span class="json-property-name">tasks:</span>
                       <span class="json-property-type">string[]</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
@@ -10846,18 +10788,6 @@
                         <div class="json-inner-schema"> </div>
                       </section>
                     </dt>
-                    <dt data-property-name="users">
-                      <span class="json-property-name">users:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="visibleToUserGroup">
                       <span class="json-property-name">visibleToUserGroup:</span>
                       <span class="json-property-type">string</span>
@@ -10885,9 +10815,6 @@
   <span class="hljs-attr">&quot;clientIds&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ],
-  <span class="hljs-attr">&quot;clients&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
   <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;endDate&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
@@ -10895,9 +10822,6 @@
   <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;projectIds&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;projects&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ],
   <span class="hljs-attr">&quot;public&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
@@ -10908,21 +10832,12 @@
   <span class="hljs-attr">&quot;tagIds&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ],
-  <span class="hljs-attr">&quot;tags&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
   <span class="hljs-attr">&quot;taskIds&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;tasks&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ],
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;userIds&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;users&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ],
   <span class="hljs-attr">&quot;visibleToUserGroup&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -11044,70 +10959,10 @@
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="clients">
-                      <span class="json-property-name">clients:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
                     <dt data-property-name="name">
                       <span class="json-property-name">name:</span>
                       <span class="json-property-type">string</span>
                       <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt data-property-name="projects">
-                      <span class="json-property-name">projects:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="tags">
-                      <span class="json-property-name">tags:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="tasks">
-                      <span class="json-property-name">tasks:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="users">
-                      <span class="json-property-name">users:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
                     </dt>
                     <dt data-property-name="userIds">
                       <span class="json-property-name">userIds:</span>
@@ -11246,22 +11101,7 @@
                 <section>
                   <h5>Example</h5>
                   <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;clients&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;projects&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;tags&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;tasks&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;users&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ],
   <span class="hljs-attr">&quot;userIds&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ],
