@@ -4667,6 +4667,11 @@
             <h2 class="operation-title">
               <span class="operation-summary">Find all time entries on workspace</span>
             </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Each request is limited to 10 time entries. To get the other 10 (and the next 10 and so on), you'll have to include the page parameter and increment it with each request (eg. https://api.clockify.me/api/workspaces/{workspaceId}/timeEntries/?page=1)</p>
+            </div>
+          </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-path">
@@ -4689,7 +4694,7 @@
                       </div>
                     </div>
                     <div class="prop-name">
-                      <div class="prop-title">limit</div>
+                      <div class="prop-title">limit (can't be changed)</div>
                       <div class="prop-subtitle"> in query </div>
                       <div class="prop-subtitle">
                         <span class="json-property-type">string</span>
