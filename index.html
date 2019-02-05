@@ -165,13 +165,13 @@
                 <a href="#operation--workspaces--workspaceId--timeEntries--post"> Add new time entry on workspace </a>
               </li>
               <li>
-                <a href="#operation--workspaces--workspaceId--timeEntries-inProgress-get"> Find time entry in progress for user </a>
+                <a href="#operation--workspaces--workspaceId--timeEntries--post--other"> Add new time entry on workspace for another user</a>
+              </li>
+              <li>
+                <a href="#operation--workspaces--workspaceId--timeEntries-inProgress-get"> Find personal time entry in progress </a>
               </li>
               <li>
                 <a href="#operation--workspaces--workspaceId--timeEntries-duration-get"> Get total duration for period </a>
-              </li>
-              <li>
-                <a href="#operation--workspaces--workspaceId--timeEntries-project--projectId--get"> Find all time entries on project </a>
               </li>
               <li>
                 <a href="#operation--workspaces--workspaceId--timeEntries-user--userId--get"> Find time entries for user </a>
@@ -5027,6 +5027,151 @@
             </div>
           </div>
 
+
+         <div id="operation--workspaces--workspaceId--timeEntries--post--other" class="operation panel" data-traverse-target="operation--workspaces--workspaceId--timeEntries--post--other">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Time-entry">Time entry</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Add new time entry on workspace for another user</span>
+            </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Adding time for others is a premium feature. This API endpoint works only for workspaces with active Premium subscription.</p>
+              <p>You specify for which user you're adding time in the request's POST path.</p>
+            </div>
+          </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">POST</span>
+                  <span class="operation-path">/workspaces/{workspaceId}/timeEntries/user/{userId}</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body">
+                  <div class="prop-row">
+                    <div class="prop-name">
+                      <div class="swagger-request-model">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/CreateTimeEntryRequest">CreateTimeEntryRequest</a>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value columns small-6">
+                      <!-- <div class="swagger-request-description"> -->
+                      <p>request</p>
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Request Content-Types:
+                    <span>application/json</span>
+                  </h5>
+                  <h5>Request Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2018-06-12T13:48:14.000Z&quot;</span>,
+  <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
+  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Writing documentation&quot;</span>,
+  <span class="hljs-attr">&quot;projectId&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
+  <span class="hljs-attr">&quot;taskId&quot;</span>: <span class="hljs-string">&quot;5b1e6b160cb8793dd93ec120&quot;</span>,
+  <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-06-12T13:50:14.000Z&quot;</span>,
+  <span class="hljs-attr">&quot;tagIds&quot;</span>: [
+    <span class="hljs-string">&quot;5a7c5d2db079870147fra234&quot;</span>
+  ]
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">201 Created</div>
+                      <div class="prop-ref">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/TimeEntryDtoImpl">TimeEntryDtoImpl</a>
+                        </span>
+                      </div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>Created</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">401 Unauthorized</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Unauthorized</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Forbidden</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">404 Not Found</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Not Found</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>*/*</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(201 Created)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
+  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Writing documentation&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5b0fdf2a0cb87904845dfer5&quot;</span>,
+  <span class="hljs-attr">&quot;isLocked&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
+  <span class="hljs-attr">&quot;projectId&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
+  <span class="hljs-attr">&quot;tagIds&quot;</span>: [
+    <span class="hljs-string">&quot;5a7c5d2db079870147fra234&quot;</span>
+  ],
+  <span class="hljs-attr">&quot;taskId&quot;</span>: <span class="hljs-string">&quot;5b1e6b160cb8793dd93ec120&quot;</span>,
+  <span class="hljs-attr">&quot;timeInterval&quot;</span>: {
+    <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;PT2M&quot;</span>, (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
+    <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-06-12T13:50:14Z&quot;</span>,
+    <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2018-06-12T13:48:14Z&quot;</span>
+  },
+  <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;6h1e49bf0cb8790e43d6c9ab&quot;</span>,
+  <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+
+
           <div id="operation--workspaces--workspaceId--timeEntries-duration-get" class="operation panel" data-traverse-target="operation--workspaces--workspaceId--timeEntries-duration-get">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
@@ -5152,7 +5297,7 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Find time entry in progress for user</span>
+              <span class="operation-summary">Find personal time entry in progress</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -5235,206 +5380,6 @@
   <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;6h1e49bf0cb8790e43d6c9ab&quot;</span>,
   <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>
 }
-</code></pre>
-                  <!-- </div> -->
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="operation--workspaces--workspaceId--timeEntries-project--projectId--get" class="operation panel" data-traverse-target="operation--workspaces--workspaceId--timeEntries-project--projectId--get">
-            <!-- <section class="operation-tags row"> -->
-            <!-- <div class="doc-copy"> -->
-            <div class="operation-tags">
-              <a class="label" href="#tag-Time-entry">Time entry</a>
-              <!---->
-            </div>
-            <!-- </div> -->
-            <!-- </section> -->
-            <h2 class="operation-title">
-              <span class="operation-summary">Find all time entries on project</span>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-operation-path">
-                  <span class="operation-method">GET</span>
-                  <span class="operation-path">/workspaces/{workspaceId}/timeEntries/project/{projectId}</span>
-                </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy"> </div>
-              <div class="doc-examples"></div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-responses">
-                  <div class="prop-row prop-group">
-                    <div class="prop-name">
-                      <div class="prop-title">200 OK</div>
-                      <div class="prop-ref">
-                        <span class="json-schema-ref-array">
-                          <a class="json-schema-ref" href="#/definitions/TimeEntryFullDto">TimeEntryFullDto</a>
-                        </span>
-                      </div>
-                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
-                    </div>
-                    <div class="prop-value">
-                      <p>OK</p>
-                    </div>
-                  </div>
-                  <div class="prop-row prop-inner">
-                    <div class="prop-name">type</div>
-                    <div class="prop-value">
-                      <span class="json-property-type">
-                        <span class="json-schema-ref-array">
-                          <a class="json-schema-ref" href="#/definitions/TimeEntryFullDto">TimeEntryFullDto</a>
-                        </span>
-                      </span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </div>
-                  </div>
-                  <div class="prop-row prop-group">
-                    <div class="prop-name">
-                      <div class="prop-title">401 Unauthorized</div>
-                    </div>
-                    <div class="prop-value">
-                      <p>Unauthorized</p>
-                    </div>
-                  </div>
-                  <div class="prop-row prop-group">
-                    <div class="prop-name">
-                      <div class="prop-title">403 Forbidden</div>
-                    </div>
-                    <div class="prop-value">
-                      <p>Forbidden</p>
-                    </div>
-                  </div>
-                  <div class="prop-row prop-group">
-                    <div class="prop-name">
-                      <div class="prop-title">404 Not Found</div>
-                    </div>
-                    <div class="prop-value">
-                      <p>Not Found</p>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <h5>Response Content-Types:
-                  <span>*/*</span>
-                </h5>
-                <section>
-                  <h5>Response Example
-                    <span>(200 OK)</span>
-                  </h5>
-                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
-  {
-    <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
-    <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Writing documentation&quot;</span>,
-    <span class="hljs-attr">&quot;hourlyRate&quot;</span>: {
-      <span class="hljs-attr">&quot;amount&quot;</span>: <span class="hljs-string">&quot;15&quot;</span>,
-      <span class="hljs-attr">&quot;currency&quot;</span>: <span class="hljs-string">&quot;USD&quot;</span>
-    },
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5b0fdf2a0cb87904845dfer5&quot;</span>,
-    <span class="hljs-attr">&quot;isLocked&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
-    <span class="hljs-attr">&quot;project&quot;</span>: {
-      <span class="hljs-attr">&quot;archived&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
-      <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
-      <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-      <span class="hljs-attr">&quot;color&quot;</span>: <span class="hljs-string">&quot;#f44336&quot;</span>,
-      <span class="hljs-attr">&quot;estimate&quot;</span>: {
-        <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;PT0S&quot;</span>, (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
-        <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;AUTO&quot;</span> (Type: AUTO, MANUAL)
-      },
-      <span class="hljs-attr">&quot;hourlyRate&quot;</span>: null,
-      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
-      <span class="hljs-attr">&quot;memberships&quot;</span>: [
-        {
-          <span class="hljs-attr">&quot;hourlyRate&quot;</span>: {
-            <span class="hljs-attr">&quot;amount&quot;</span>: <span class="hljs-string">&quot;30&quot;</span>,
-            <span class="hljs-attr">&quot;currency&quot;</span>: <span class="hljs-string">&quot;USD&quot;</span>
-          },
-          <span class="hljs-attr">&quot;membershipStatus&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>,
-          <span class="hljs-attr">&quot;membershipType&quot;</span>: <span class="hljs-string">&quot;PROJECT&quot;</span>,
-          <span class="hljs-attr">&quot;target&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
-          <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;6h1e49bf0cb8790e43d6c9ab&quot;</span>
-        }
-      ],
-      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Clockify 2&quot;</span>,
-      <span class="hljs-attr">&quot;public&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
-      <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-    },
-    <span class="hljs-attr">&quot;projectId&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
-    <span class="hljs-attr">&quot;tags&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5a7c5d2db079870147fra234&quot;</span>,
-        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tag 1&quot;</span>,
-        <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>
-      }
-    ],
-    <span class="hljs-attr">&quot;task&quot;</span>: {
-      <span class="hljs-attr">&quot;assigneeId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-      <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;PT0S&quot;</span>, (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
-      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5b1e6b160cb8793dd93ec120&quot;</span>,
-      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Task 1&quot;</span>,
-      <span class="hljs-attr">&quot;projectId&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
-      <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span> (Status: ACTIVE, DONE)
-    },
-    <span class="hljs-attr">&quot;timeInterval&quot;</span>: {
-      <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;PT0S&quot;</span>, (Duration example: PT1H30M15S - 1 hour 30 minutes 15 seconds)
-      <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-06-04T11:25:30Z&quot;</span>,
-      <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2018-06-04T11:25:30Z&quot;</span>
-    },
-    <span class="hljs-attr">&quot;totalBillable&quot;</span>: null,
-    <span class="hljs-attr">&quot;user&quot;</span>: {
-      <span class="hljs-attr">&quot;activeWorkspace&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>,
-      <span class="hljs-attr">&quot;defaultWorkspace&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>,
-      <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;john.doe@clockify.me&quot;</span>,
-      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;6h1e49bf0cb8790e43d6c9ab&quot;</span>,
-      <span class="hljs-attr">&quot;memberships&quot;</span>: [
-        {
-          <span class="hljs-attr">&quot;hourlyRate&quot;</span>: {
-            <span class="hljs-attr">&quot;amount&quot;</span>: <span class="hljs-string">&quot;15&quot;</span>,
-            <span class="hljs-attr">&quot;currency&quot;</span>: <span class="hljs-string">&quot;USD&quot;</span>
-          },
-          <span class="hljs-attr">&quot;membershipStatus&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>,
-          <span class="hljs-attr">&quot;membershipType&quot;</span>: <span class="hljs-string">&quot;WORKSPACE&quot;</span>,
-          <span class="hljs-attr">&quot;target&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>,
-          <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;6h1e49bf0cb8790e43d6c9ab&quot;</span>
-        },
-        {
-          <span class="hljs-attr">&quot;hourlyRate&quot;</span>: {
-            <span class="hljs-attr">&quot;amount&quot;</span>: <span class="hljs-string">&quot;30&quot;</span>,
-            <span class="hljs-attr">&quot;currency&quot;</span>: <span class="hljs-string">&quot;USD&quot;</span>
-          },
-          <span class="hljs-attr">&quot;membershipStatus&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>,
-          <span class="hljs-attr">&quot;membershipType&quot;</span>: <span class="hljs-string">&quot;PROJECT&quot;</span>,
-          <span class="hljs-attr">&quot;target&quot;</span>: <span class="hljs-string">&quot;5b1667790cb8797321f3d664&quot;</span>,
-          <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;6h1e49bf0cb8790e43d6c9ab&quot;</span>
-        }
-      ],
-      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;John Doe&quot;</span>,
-      <span class="hljs-attr">&quot;profilePicture&quot;</span>: <span class="hljs-string">&quot;https://s3.eu-central-1.amazonaws.com/test/profile.png&quot;</span>,
-      <span class="hljs-attr">&quot;settings&quot;</span>: {
-        <span class="hljs-attr">&quot;dateFormat&quot;</span>: <span class="hljs-string">&quot;MM/DD/YYYY&quot;</span>,
-        <span class="hljs-attr">&quot;isCompactViewOn&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
-        <span class="hljs-attr">&quot;longRunning&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
-        <span class="hljs-attr">&quot;sendNewsletter&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
-        <span class="hljs-attr">&quot;summaryReportSettings&quot;</span>: {
-          <span class="hljs-attr">&quot;group&quot;</span>: <span class="hljs-string">&quot;Project&quot;</span>, (Group: Project, Client, User, Tag, Time Entry, Task)
-          <span class="hljs-attr">&quot;subgroup&quot;</span>: <span class="hljs-string">&quot;string&quot;</span> (Subgroup: Project, Client, User, Tag)
-        },
-        <span class="hljs-attr">&quot;timeFormat&quot;</span>: <span class="hljs-string">&quot;HOUR12&quot;</span>,
-        <span class="hljs-attr">&quot;timeTrackingManual&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
-        <span class="hljs-attr">&quot;timeZone&quot;</span>: <span class="hljs-string">&quot;Europe/Belgrade&quot;</span>,
-        <span class="hljs-attr">&quot;weekStart&quot;</span>: <span class="hljs-string">&quot;MONDAY&quot;</span>,
-        <span class="hljs-attr">&quot;weeklyUpdates&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>
-      },
-      <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>
-    },
-    <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;5g3g57bt0cb2548e22e6l9cd&quot;</span>
-  }
-]
 </code></pre>
                   <!-- </div> -->
                 </section>
@@ -5933,6 +5878,7 @@
           <div class="tag-description doc-row">
             <div class="doc-copy">
               <p>To stop the running timer you only need to know the ID of the workspace where the timer is running.</p>
+              <p>If workspace has a required field enabled (eg. the Timesheet is enabled and project is a required field as a result), you won't be able to stop the timer until you fill in the required field(s). You'll simply get "501 Entity not created" message.</p>
             </div>
           </div>
             <div class="doc-row">
