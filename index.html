@@ -187,6 +187,9 @@
               <li>
                 <a href="#operation--workspaces--workspaceId--timeEntries--stopTimer--put"> Stop running timer </a>
               </li>
+              <li>
+                <a href="#operation--workspaces--workspaceId--timeEntries--stopTimer--put--others"> Stop someone else's running timer</a>
+              </li>
               </li>
             </ul>
           </section>
@@ -344,6 +347,7 @@
             <div class="doc-row">
               <div class="doc-copy">
                 <p>Welcome to the Clockify API documentation. By using our REST-based API, you can integrate Clockify into your existing apps or create new ones.</p>
+                <p>You can generate your API key by logging into Clockify and going to your <a href="https://clockify.me/user/settings">Personal Settings</a>.</p>
                 <p>If you have a question, post it on Stack Overflow and tag it with <a href="https://stackoverflow.com/questions/tagged/clockify">clockify</a> (we monitor tagged questions).</p>
                 <p>This documentation is being continually updated. Follow the changes by watching our <a href="https://github.com/clockify/clockify_api_docs">GitHub repo</a> or by checking out the <a href="https://github.com/clockify/clockify_api_docs/commits/master">commit history</a> once in a while.</p>
               </div>
@@ -369,7 +373,7 @@
           <div id="security-definition-api_key" class="panel">
             <div class="doc-row">
               <div class="doc-copy">
-                <p>All requests need to be authenticated with API key, which you can find in your <a href="https://clockify.me/user/settings">User Settings</a>.</p>
+                <p>All requests need to be authenticated with API key, which you can find in your <a href="https://clockify.me/user/settings">Personal Settings</a>.</p>
                 <p>The API key must be used with the X-Api-Key header or you'll get "Full authentication is required to access this resource" response.</p>
                 <h3 class="security-definition-title">
                   <span class="security-name">X-Api-Key</span>
@@ -5044,6 +5048,7 @@
             <div class="doc-copy">
               <p>Adding time for others is a premium feature. This API endpoint works only for workspaces with active Premium subscription.</p>
               <p>You specify for which user you're adding time in the request's POST path.</p>
+              <p>If you leave out end time, you'll start a timer for that person. To stop the timer, you'll have to use the "PUT /workspaces/{workspaceId}/timeEntries/{timeEntryId}/end" PATH (request example: {"end":"2019-02-07T14:00:07.000Z"}<p> 
             </div>
           </div>
             <div class="doc-row">
@@ -5886,6 +5891,76 @@
                 <section class="swagger-operation-path">
                   <span class="operation-method">PUT</span>
                   <span class="operation-path">/workspaces/{workspaceId}/timeEntries/endStarted</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples"></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">204 No Content</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>No Content</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">401 Unauthorized</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Unauthorized</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Forbidden</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                  <h5>Request Content-Types:
+                    <span>application/json</span>
+                  </h5>
+                  <h5>Request Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2018-10-16T10:54:39.883Z&quot;</span>
+}
+</code></pre>
+              </div>
+            </div>
+         <div id="operation--workspaces--workspaceId--timeEntries--stopTimer--put--others" class="operation panel" data-traverse-target="operation--workspaces--workspaceId--timeEntries--stopTimer--put">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Time-entry">Time entry</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Stop someone else's running timer</span>
+            </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Admins can stop someone their team's running timers on Premium workspaces (Add time for others feature).</p>
+              <p>If workspace has a required field enabled (eg. the Timesheet is enabled and project is a required field as a result), you won't be able to stop the timer until you fill in the required field(s). You'll simply get "501 Entity not created" message.</p>
+            </div>
+          </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">PUT</span>
+                  <span class="operation-path">/workspaces/{workspaceId}/timeEntries/{timeEntryId}/end</span>
                 </section>
               </div>
             </div>
