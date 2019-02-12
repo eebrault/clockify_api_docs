@@ -318,6 +318,7 @@
           <a href="#definition-TimeEntryDtoImpl"> TimeEntryDtoImpl </a>
           <a href="#definition-TimeEntryFullDto"> TimeEntryFullDto </a>
           <a href="#definition-TimeIntervalDto"> TimeIntervalDto </a>
+          <a href="#definition-TimeEntrySummaryDto"> TimeEntrySummaryDto </a>
           <a href="#definition-UpdateProjectRequest"> UpdateProjectRequest </a>
           <a href="#definition-UpdateReportRequest"> UpdateReportRequest </a>
           <a href="#definition-UpdateRoundRequest"> UpdateRoundRequest </a>
@@ -4777,10 +4778,7 @@
   {
     <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
     <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Writing documentation&quot;</span>,
-    <span class="hljs-attr">&quot;hourlyRate&quot;</span>: {
-      <span class="hljs-attr">&quot;amount&quot;</span>: <span class="hljs-string">&quot;15&quot;</span>,
-      <span class="hljs-attr">&quot;currency&quot;</span>: <span class="hljs-string">&quot;USD&quot;</span>
-    },
+    <span class="hljs-attr">&quot;hourlyRate&quot;</span>: null,
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5b0fdf2a0cb87904845dfer5&quot;</span>,
     <span class="hljs-attr">&quot;isLocked&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
     <span class="hljs-attr">&quot;project&quot;</span>: {
@@ -5108,7 +5106,7 @@
                       <div class="prop-title">201 Created</div>
                       <div class="prop-ref">
                         <span class="">
-                          <a class="json-schema-ref" href="#/definitions/TimeEntryDtoImpl">TimeEntryDtoImpl</a>
+                          <a class="json-schema-ref" href="#/definitions/TimeEntrySummaryDto">TimeEntrySummaryDto</a>
                         </span>
                       </div>
                       <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
@@ -11445,6 +11443,11 @@
                       <span class="json-property-type">string</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dt data-property-name="timeEntries">
+                      <span class="json-property-name">timeEntries:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
                   </dl>
                 </section>
               </div>
@@ -11456,7 +11459,8 @@
   <span class="hljs-attr">&quot;dateAndTotalNotBillableTime&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
   <span class="hljs-attr">&quot;projectAndTotalTime&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
   <span class="hljs-attr">&quot;totalTime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;timeEntries&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
 }
 </code></pre>
                   <!-- </div> -->
@@ -12203,6 +12207,127 @@
   <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-TimeEntrySummaryDto" class="definition panel" data-traverse-target="definition-TimeEntrySummaryDto">
+            <h2 class="panel-title">
+              <a name="/definitions/TimeEntrySummaryDto"></a>TimeEntrySummaryDto
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="id">
+                      <span class="json-property-name">id:</span>
+                      <span class="json-property-type">string</span>
+                    </dt>
+                    <dt data-property-name="billable">
+                      <span class="json-property-name">billable:</span>
+                      <span class="json-property-type">boolean</span>
+                    </dt>
+                    <dt data-property-name="description">
+                      <span class="json-property-name">description:</span>
+                      <span class="json-property-type">string</span>
+                    </dt>
+                    <dt data-property-name="project">
+                      <span class="json-property-name">project:</span>
+                      <span class="json-property-type">object</span>
+                    </dt>
+                    <dt data-property-name="clientId">
+                      <span class="json-property-name">clientId:</span>
+                      <span class="json-property-type">string</span>
+                    </dt>
+                    <dt data-property-name="clientId">
+                      <span class="json-property-name">clientName:</span>
+                      <span class="json-property-type">string</span>
+                    </dt>
+                    <dt data-property-name="hourlyRate">
+                      <span class="json-property-name">hourlyRate:</span>
+                      <span class="json-property-type">object</span>
+                    </dt>
+                    <dt data-property-name="timeInterval">
+                      <span class="json-property-name">timeInterval:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-format">(date-time)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="user">
+                      <span class="json-property-name">user:</span>
+                      <span class="json-property-type">object</span>
+                    </dt>
+                    <dt data-property-name="task">
+                      <span class="json-property-name">task:</span>
+                      <span class="json-property-type">object</span>
+                    </dt>
+                    <dt data-property-name="tags">
+                      <span class="json-property-name">tags:</span>
+                      <span class="json-property-type">object</span>
+                    </dt>
+                    <dt data-property-name="name">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                    </dt>
+                    <dt data-property-name="workspaceId">
+                      <span class="json-property-name">workspaceId:</span>
+                      <span class="json-property-type">string</span>
+                    </dt>
+                    <dt data-property-name="totalBillable">
+                      <span class="json-property-name">totalBillable:</span>
+                      <span class="json-property-type">number</span>
+                    </dt>
+                    <dt data-property-name="isLocked">
+                      <span class="json-property-name">isLocked:</span>
+                      <span class="json-property-type">boolean</span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5c5d903040d6da66707b81df&quot;</span>,
+      <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">true</span>,
+      <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">Working on docs</span>, 
+      <span class="hljs-attr">&quot;project&quot;</span>: {
+          <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;595a0476b0798754c022e1df&quot;</span>,
+          <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;MyProject&quot;</span>,
+          <span class="hljs-attr">&quot;color&quot;</span>: <span class="hljs-string">&quot;#f44336&quot;</span>
+      },
+      <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;592fef6ab5798737a6d521df&quot;</span>,
+      <span class="hljs-attr">&quot;clientName&quot;</span>: <span class="hljs-string">&quot;COING&quot;</span>,
+      <span class="hljs-attr">&quot;hourlyRate&quot;</span>: {
+          <span class="hljs-attr">&quot;amount&quot;</span>: <span class="hljs-string">&quot;500&quot;</span>,
+          <span class="hljs-attr">&quot;currency&quot;</span>: <span class="hljs-string">&quot;USD&quot;</span>
+      },
+      <span class="hljs-attr">&quot;timeInterval&quot;</span>: {
+          <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2019-02-08T12:00:01Z&quot;</span>,
+          <span class="hljs-attr">&quot;end&quot;</span>: <span class="hljs-string">&quot;2019-02-08T13:00:01Z&quot;</span>,
+          <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;PT1H&quot;</span>
+      },
+      <span class="hljs-attr">&quot;user&quot;</span>: {
+          <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5a0ab5acb07987122438b1df&quot;</span>,
+          <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Jack White&quot;</span>,
+          <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;jack.white@clockify.me&quot;</span>
+      },
+      <span class="hljs-attr">&quot;task&quot;</span>: <span class="hljs-string">null</span>,
+      <span class="hljs-attr">&quot;tags&quot;</span>: [{
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5b2c12f6b079372d5bcf31df&quot;</span>
+    }],
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;development&quot;</span>,
+      <span class="hljs-attr">&quot;workspaceId&quot;</span>: <span class="hljs-string">&quot;592e9e48b0758735d03919ee&quot;</span>,
+      <span class="hljs-attr">&quot;totalBillable&quot;</span>: <span class="hljs-string">500</span>,
+      <span class="hljs-attr">&quot;isLocked&quot;</span>: <span class="hljs-string">false</span>
 }
 </code></pre>
                   <!-- </div> -->
