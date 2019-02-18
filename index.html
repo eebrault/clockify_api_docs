@@ -197,6 +197,9 @@
             <a href="#tag-User">User</a>
             <ul>
               <li>
+                <a href="#operation--users--userId--get--personal"> Find your user ID </a>
+              </li>
+              <li>
                 <a href="#operation--users--userId--get"> Find user by ID </a>
               </li>
               <li>
@@ -6010,6 +6013,133 @@
           <div class="tag-description doc-row">
             <div class="doc-copy">
               <p>Operations about user</p>
+            </div>
+          </div>
+          <div id="operation--users--userId--get--personal" class="operation panel" data-traverse-target="operation--users--userId--get">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-User">User</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Find your user ID</span>
+            </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>You can find your own user ID by using the log-in endpoint.</p>
+              <p>If you are relying on user token and don't have email/password, you can get the user ID using only the token like this: <pre><code class="hljs lang-json">POST https://api.clockify.me/api/auth/token/refresh<br>body: {"refreshToken": "$yourTokenId"}</code></p>
+            </div>
+          </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">POST</span>
+                  <span class="operation-path">/auth/token</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples"></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                      <div class="prop-ref">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/AuthDto">AuthDto</a>
+                        </span>
+                      </div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>OK</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">401 Unauthorized</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Unauthorized</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Forbidden</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">404 Not Found</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Not Found</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                  <h5>Request Content-Types:
+                    <span>application/json</span>
+                  </h5>
+                  <h5>Request Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;joe.email@company.com&quot;</span>,
+  <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;mypassword&quot;</span>
+}
+</code></pre>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>*/*</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;5a0ab5acb07987125438b601&quot;</span>,
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;joe.email@company.com&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Joe Doe&quot;</span>,
+  <span class="hljs-attr">&quot;token&quot;</span>: <span class="hljs-string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YTBhYjVhY2IwNzk4NzEyNTQzOGI2MGYiLCJpc3MiOiJjbG9ja22meSIsIm5hbWUiOiJPd25lciIsImV4cCI6MTU1MDU4MDY5NCwiZW1haWwiOiJhbGVrc2FuZGFyLm9saWNAY2xvY2tpZnkubWUifQ.72rNDjsc-nt3D82keikrPyoHzQaKzT3ka8h3bjeBX1&quot;</span>,
+  <span class="hljs-attr">&quot;membership&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;5a0ab5acb07987125438b60f&quot;</span>,
+      <span class="hljs-attr">&quot;hourlyRate&quot;</span>: <span class="hljs-string">null</span>,
+      <span class="hljs-attr">&quot;targetId&quot;</span>: <span class="hljs-string">&quot;5a0ab5adb07987125438b611&quot;</span>,
+      <span class="hljs-attr">&quot;membershipType&quot;</span>: <span class="hljs-string">&quot;USERGROUP&quot;</span>,
+      <span class="hljs-attr">&quot;membershipStatus&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>
+    },
+    {
+     <span class="hljs-attr">&quot;userId&quot;</span>: <span class="hljs-string">&quot;5a0ab5acb07987125438b60f&quot;</span>,
+     <span class="hljs-attr">&quot;hourlyRate&quot;</span>: {
+        <span class="hljs-attr">&quot;amount&quot;</span>: <span class="hljs-string">2000</span>,
+        <span class="hljs-attr">&quot;currency&quot;</span>: <span class="hljs-string">&quot;USD&quot;</span>
+      },
+      <span class="hljs-attr">&quot;targetId&quot;</span>: <span class="hljs-string">&quot;5a0ab5adb07987125438b611&quot;</span>,
+      <span class="hljs-attr">&quot;membershipType&quot;</span>: <span class="hljs-string">&quot;USERGROUP&quot;</span>,
+      <span class="hljs-attr">&quot;membershipStatus&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>,
+  <span class="hljs-attr">&quot;isNew&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
+  <span class="hljs-attr">&quot;refreshToken&quot;</span>: <span class="hljs-string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YTBhYjVhY2IwNzk4NzEyNTQzOGI2MGYiLCJpc3MiOiJjbG9ja2lmeSIsIm5hbWUiO2JPd25lciIsImV4cCI6MTU1NDM4MjI5NCwiZW1haWwiOiJhbGVrc2FuZGFyLm9saWNAY2xvY2tpZnkubWUifQ.6DqNN7CR4QNAAOKeffoGfkJrTVaMsRMcXPwuQCTc4e1&quot;</span>,
+  <span class="hljs-attr">&quot;new&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
             </div>
           </div>
           <div id="operation--users--userId--get" class="operation panel" data-traverse-target="operation--users--userId--get">
