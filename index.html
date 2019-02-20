@@ -85,22 +85,22 @@
             </ul>
           </section>
           <section>
-            <a href="#tag-Report">Report</a>
+            <a href="#tag-Report">Saved report</a>
             <ul>
               <li>
-                <a href="#operation--reports--reportId--get"> Find report by ID </a>
+                <a href="#operation--reports--reportId--get"> Find saved report by ID </a>
               </li>
               <li>
-                <a href="#operation--workspaces--workspaceId--reports--get"> Find all reports of workspace </a>
+                <a href="#operation--workspaces--workspaceId--reports--get"> Find all saved reports of workspace </a>
               </li>
               <li>
                 <a href="#operation--workspaces--workspaceId--reports--post"> Save report </a>
               </li>
               <li>
-                <a href="#operation--workspaces--workspaceId--reports--reportId--put"> Update report </a>
+                <a href="#operation--workspaces--workspaceId--reports--reportId--put"> Update saved report </a>
               </li>
               <li>
-                <a href="#operation--workspaces--workspaceId--reports--reportId--delete"> Remove report by ID </a>
+                <a href="#operation--workspaces--workspaceId--reports--reportId--delete"> Remove saved report by ID </a>
               </li>
             </ul>
           </section>
@@ -1136,7 +1136,7 @@
   <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
   <span class="hljs-attr">&quot;isPublic&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>,
   <span class="hljs-attr">&quot;estimate&quot;</span>: {
-    <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;3600&quot;</span>, (number in seconds)
+    <span class="hljs-attr">&quot;estimate&quot;</span>: <span class="hljs-string">&quot;3600&quot;</span>, (number in hours)
     <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;AUTO&quot;</span> (Type: AUTO, MANUAL)
   },
   <span class="hljs-attr">&quot;color&quot;</span>: <span class="hljs-string">&quot;#f44336&quot;</span>,
@@ -2533,7 +2533,7 @@
               </div>
             </div>
           </div>
-          <h1 id="tag-Report" class="swagger-summary-tag" data-traverse-target="tag-Report">Report</h1>
+          <h1 id="tag-Report" class="swagger-summary-tag" data-traverse-target="tag-Report">Saved reports</h1>
           <div class="tag-description doc-row">
             <div class="doc-copy">
               <p>Operations about report</p>
@@ -2549,7 +2549,7 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Find report by ID</span>
+              <span class="operation-summary">Find saved report by ID</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -2785,7 +2785,7 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Find all reports of workspace</span>
+              <span class="operation-summary">Find all saved reports of workspace</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -3045,7 +3045,7 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Update report</span>
+              <span class="operation-summary">Update saved report</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -3188,7 +3188,7 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Remove report by ID</span>
+              <span class="operation-summary">Remove saved report by ID</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -3300,6 +3300,19 @@
             <h2 class="operation-title">
               <span class="operation-summary">Generate summary report for workspace</span>
             </h2>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>There are no endpoints for Detailed or Weekly report. Instead, you use the summary report and arrange the data as needed.</p>
+              <p>Endpoint returns time entries for the filters you've specified (eg. if you put 2017 for startTime and 2018 for endTime, you'll get all the entries as long as you don't use any other filters). 
+              <p>When the time entry is set as non-billable, the hourly rate is always zero. For entries marked as billable, the hourly rate you get depends on this schema:</p>
+              <ol>
+                <li>if project.userMemberhip.hourlyRate exists return project.userMemberhip.hourlyRate</li>
+                <li>if project.hourlyRate exists return project.hourlyRate</li>
+                <li>if workspace.userMembership.hourlyRate exists return workspace.userMembership.hourlyRate</li>
+                <li>if workspace.hourlyRate exists return workspace.hourlyRate</li>
+              </ol>
+            </div>
+          </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-path">
@@ -3345,7 +3358,7 @@
   <span class="hljs-attr">&quot;tagIds&quot;</span>: <span class="hljs-string">[],</span>
   <span class="hljs-attr">&quot;billable&quot;</span>: <span class="hljs-string">&quot;BOTH&quot;,</span> (Options: "BOTH", "BILLABLE", "NOT_BILLABLE")
   <span class="hljs-attr">&quot;includeTimeEntries&quot;</span>: <span class="hljs-string">&quot;true&quot;,</span>
-  <span class="hljs-attr">&quot;zoomLevel&quot;</span>: <span class="hljs-string">&quot;week&quot;</span> (Options: "week", "month", "year")
+  <span class="hljs-attr">&quot;zoomLevel&quot;</span>: <span class="hljs-string">&quot;week&quot;</span>, (Options: "week", "month", "year")
   <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;&quot;,</span>
   <span class="hljs-attr">&quot;archived&quot;</span>: <span class="hljs-string">&quot;Active&quot;,</span> (Options: "Active", "All", "Archived")
   <span class="hljs-attr">&quot;roundingOn&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>
