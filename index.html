@@ -6043,7 +6043,7 @@
           <div class="tag-description doc-row">
             <div class="doc-copy">
               <p>You can find your own user ID by using the log-in endpoint.</p>
-              <p>If you are relying on user token and don't have email/password, you can get the user ID using only the token like this: <pre><code class="hljs lang-json">POST https://api.clockify.me/api/auth/token/refresh<br>body: {"refreshToken": "$yourTokenId"}</code></p>
+              <p>To get IDs of other users in workspace, use: <pre><code class="hljs lang-json">GET /workspaces/{workspaceId}/users</code></p>
             </div>
           </div>
             <div class="doc-row">
@@ -8740,7 +8740,7 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Find all users on workspace</span>
+              <span class="operation-summary">Find all users and their IDs on workspace</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
