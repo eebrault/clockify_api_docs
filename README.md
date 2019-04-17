@@ -1,7 +1,5 @@
 # Clockify API Documentation
 
-API Documentation for [Clockify](https://clockify.me) time tracking software
+[Working API Documentation](https://clockify.github.io/clockify_api_docs/) for [Clockify](https://clockify.me) time tracking software. 
 
-[Visit documentation here](https://clockify.github.io/clockify_api_docs/)
-
-If you have questions, feel free to post a question of StackOverflow and tag it [clockify](https://stackoverflow.com/questions/tagged/clockify).
+We recommend using the [stable v1 API](https://clockify.me/developers-api). Stable end points are guaranteed to not change in incompatible ways, so you can be sure that the basic interface as documented by the spec will continue to work as described.
